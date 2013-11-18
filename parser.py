@@ -23,6 +23,22 @@ def decode(input):
 def encode (input):
 	return urllib.parse.unquote(input)
 
+def getOutput(input):
+	parsed = urllib.parse.urlparse(input)
+	output = ""
+	output += parsed.scheme + "://"
+	output += parsed.netloc + ""
+	output += parsed.path
+	output += parsed.params + "\n"
+	query = urllib.parse.parse_qs(parsed.query)
+	print(query)
+	for key, val in query.items():
+		for item in val:
+			output += "\t&" + key + "=" + item + "\n"
+	# output += parsed.query + "\n"
+	output += parsed.fragment + "\n"
+	return output
+
 
 class QuerytidiertidyCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
@@ -42,12 +58,5 @@ class QuerytidierclutterCommand(sublime_plugin.TextCommand):
 		for region in selections(view):
 			s = view.substr(region)
 			s = encode(s)
-			parsed = urllib.parse.urlparse(s)
-			output = ""
-			output += parsed.scheme + "\n"
-			output += parsed.netloc + "\n"
-			output += parsed.path + "\n"
-			output += parsed.params + "\n"
-			output += parsed.query + "\n"
-			output += parsed.fragment + "\n"
-			view.replace(edit, region, output)
+			sz = region.end()
+			view.insert(edit, sz, "\n\n"+getOutput(s)+"\n")
