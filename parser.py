@@ -4,7 +4,6 @@ import urllib
 ST3 = sublime.version() == '' or int(sublime.version()) > 3000
 SET_NAME = "QueryTidier.sublime-settings"
 SPLIT_KEY = "split_chars"
-settings = sublime.load_settings(SET_NAME)
 
 def selections(view, default_to_all=True):
     """Return all non-empty selections in view
@@ -40,14 +39,19 @@ def getOutput(input):
 
 
 def formatValue(value):
+	settings = sublime.load_settings(SET_NAME)
 	splits = settings.get(SPLIT_KEY)
+	print(splits)
 	result = value
 	insert = "\n\t\t"
-	for split in splits:
-		start = result.index(split, 0)
-		while start != -1:
-			result = insertText(result, insert, start)
-			start = result.inex(split, start)
+	# for split in splits:
+	# 	print("Finding " + split)
+	# 	start = result.find(split, 0)
+	# 	print(start)
+	# 	while start != -1:
+	# 		result = insertText(result, insert, start)
+	# 		start = result.find(split, start)
+	# 		print(start)
 
 	return result
 
