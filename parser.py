@@ -44,15 +44,17 @@ def formatValue(value):
 	result = value
 	insert = "\n\t\t"
 	for split in splits:
-		parts = result.split(split)
-		result = insert.join(parts)
+		start = result.index(split, 0)
+		while start != -1:
+			result = insertText(result, insert, start)
+			start = result.inex(split, start)
 
 	return result
 
-def insert(original, new, pos):
+def insertText(original, new, pos):
   '''Inserts new inside original at pos.'''
   return original[:pos] + new + original[pos:]
- 
+
 
 class QuerytidiertidyCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
