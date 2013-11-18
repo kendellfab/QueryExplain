@@ -49,6 +49,10 @@ def formatValue(value):
 
 	return result
 
+def insert(original, new, pos):
+  '''Inserts new inside original at pos.'''
+  return original[:pos] + new + original[pos:]
+ 
 
 class QuerytidiertidyCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
