@@ -1,0 +1,4 @@
+[
+	{ "keys": ["super+u", "super+d"], "command": "querytidiertidy"},
+	{ "keys": ["super+u", "super+l"], "command": "querytidierclutter"}
+]
