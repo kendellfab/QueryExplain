@@ -34,10 +34,20 @@ def getOutput(input):
 	print(query)
 	for key, val in query.items():
 		for item in val:
-			output += "\t&" + key + "=" + item + "\n"
-	# output += parsed.query + "\n"
+			output += "\t&" + key + "=" + formatValue(item) + "\n"
 	output += parsed.fragment + "\n"
 	return output
+
+
+def formatValue(value):
+	splits = settings.get(SPLIT_KEY)
+	result = value
+	insert = "\n\t\t"
+	for split in splits:
+		parts = result.split(split)
+		result = insert.join(parts)
+
+	return result
 
 
 class QuerytidiertidyCommand(sublime_plugin.TextCommand):
@@ -52,8 +62,6 @@ class QuerytidiertidyCommand(sublime_plugin.TextCommand):
 
 class QuerytidierclutterCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		splits = settings.get(SPLIT_KEY)
-		print(splits)
 		view = self.view
 		for region in selections(view):
 			s = view.substr(region)
