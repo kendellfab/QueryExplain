@@ -10,12 +10,8 @@
                 "children":
                 [
                     {
-                        "caption": "Query Tidier : Tidy",
-                        "command": "querytidiertidy"
-                    },
-                    {
-                        "caption": "Query Tidier : Clutter",
-                        "command": "querytidierclutter"
+                        "caption": "Query Explain",
+                        "command": "queryexplain"
                     }
                 ]
             }

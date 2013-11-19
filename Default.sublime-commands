@@ -1,10 +1,10 @@
 [
 	{
-		"caption": "Query Tidier : Tidy",
-		"command": "querytidiertidy"
+		"caption": "Query Explain",
+		"command": "queryexplain"
 	},
 	{
-		"caption": "Query Tidier : Clutter",
-		"command": "querytidierclutter"
+		"caption": "Query Condense",
+		"command": "querycondense"
 	}
 ]
