@@ -12,6 +12,10 @@
                     {
                         "caption": "Query Explain",
                         "command": "queryexplain"
+                    },
+                    {
+                        "caption": "Query Condense",
+                        "command": "querycondense"
                     }
                 ]
             }
