@@ -1,3 +1,4 @@
 [
-	{ "keys": ["super+u", "super+l"], "command": "queryexplain"}
+	{ "keys": ["super+u", "super+l"], "command": "queryexplain"},
+	{ "keys": ["super+u", "super+c"], "command": "querycondense"}
 ]

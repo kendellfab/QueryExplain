@@ -1,0 +1,4 @@
+[
+	{ "keys": ["ctrl+u", "ctrl+l"], "command": "queryexplain"},
+	{ "keys": ["ctrl+u", "ctrl+c"], "command": "querycondense"}
+]
